@@ -9,11 +9,8 @@ private:
 
 	int denominator_;
 
-	int getGcd(int v1, int v2);
 public:
 	Fraction(int numerator, int denominator);
-
-	void shorten();
 
 	int compare(const Fraction& other) const;
 

@@ -1,31 +1,5 @@
 ﻿#include "Fraction.h"
 
-
-// Алгоритм евклида для нахождения НОД
-int Fraction::getGcd(int v1, int v2)
-{
-	auto a = std::abs(v1);
-	auto b = std::abs(v2);
-
-	if (a == 0 || b == 0)
-	{
-		return 1;
-	}
-	auto large = a > b ? a : b;
-	auto small = a > b ? b : a;
-	do
-	{
-		auto r = large % small;
-		if (r == 0)
-		{
-			return small;
-		}
-
-		large = small;
-		small = r;
-	} while (true);
-}
-
 Fraction::Fraction(int numerator, int denominator)
 {
 	if (denominator == 0)
@@ -35,13 +9,6 @@ Fraction::Fraction(int numerator, int denominator)
 
 	numerator_ = numerator;
 	denominator_ = denominator;
-}
-
-void Fraction::shorten()
-{
-	auto gcd = getGcd(numerator_, denominator_);
-	numerator_ = numerator_ / gcd;
-	denominator_ = denominator_ / gcd;
 }
 
 int Fraction::compare(const Fraction& other) const
